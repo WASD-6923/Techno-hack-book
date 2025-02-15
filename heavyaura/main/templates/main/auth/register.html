@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Register
+{% endblock title %}
+
+
+{% block content %}
+<h1>Регистрация</h1>
+<form id="myForm">
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Зарегистрироваться</button>
+</form>
+
+    {% comment %} <img src="{% static 'img/img.png' %}" class="soldatic" alt="">
+    <img src="{% static 'img/subimg.png' %}" class="subsoldatic" alt=""> {% endcomment %}
+{% endblock content %}
+    

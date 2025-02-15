@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+
+{% block content %}
+    <section class="home d-flex flex-column">
+        <div class="home-title">
+
+            <div class="home-recomendation">
+                <div class="d-flex">
+                    <img src="{% static 'img/Untitled/pngwing.com 1.svg' %}" alt="">
+                   
+                        <span class="orspan">Оренбургская область<br> Книга Памяти</span>
+                        
+                          <div class="links">
+                            <ul class="header-list d-flex">
+                                <li>
+                                   <a href="/" class="nav-a m-3">Home</a> 
+                                </li>
+                                <li>
+                                    <a href="/register" class="nav-a m-3">Зарегистрироваться</a> 
+                                    <a href="/authtorisation" class="nav-a m-3">Аторизироваться</a> 
+                                 </li>
+                            </ul>
+                          </div>
+                    
+                </div>
+               <div class="welcome">
+                <img src="{% static 'img/Untitled/КАЖДАЯ ЖИЗНЬ - ПОДВИГ,.svg' %}" alt="">
+                <img src="{% static '/img/Untitled/КАЖДОЕ ИМЯ - В НАШЕЙ ПАМЯТИ.svg' %}" alt="">
+               </div>
+            </div>
+            <div class="home-cards"> 
+                
+                {% for geroys in geroys %}
+                    <a href="{{ geroys.get_absolute_url }} classhome-card">
+                         <img src="" class="card-image" alt="">
+                         <h5 class="title-card">{{ geroy.name }}</h5>
+                         <p class="age">{{ geroy.age }}</p>
+                    </a>
+                {% endfor %}
+                    
+            </div>
+        </div>
+    </section>
+    {% comment %} <img src="{% static 'img/img.png' %}" class="soldatic" alt="">
+    <img src="{% static 'img/subimg.png' %}" class="subsoldatic" alt=""> {% endcomment %}
+{% endblock content %}
+    

@@ -1,0 +1,85 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %}
+    Авторизация
+{% endblock title %}
+
+
+{% block content %}
+
+
+<style>
+    #myForm{
+        background-color: #DCCEB3;
+        width: 907px;
+        height: 400px;
+        display: block;
+    }
+    .fields{
+        width: 60%;
+    }
+</style>
+
+
+<h1>Авторизация</h1>
+<form id="myForm">
+<div class="fields">
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Войти в аккаунт</button>
+</div>
+</form>
+
+    {% comment %} <img src="{% static 'img/img.png' %}" class="soldatic" alt="">
+    <img src="{% static 'img/subimg.png' %}" class="subsoldatic" alt=""> {% endcomment %}
+<script>
+    // Массив для хранения данных
+let dataArray = [];
+
+// Получаем форму и список для отображения данных
+const form = document.getElementById('myForm');
+const dataList = document.getElementById('dataList');
+
+// Обработчик отправки формы
+form.addEventListener('submit', function (event) {
+    event.preventDefault(); // Отменяем стандартное поведение формы
+
+    // Создаем объект с данными из формы
+    const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        password: form.password.value, // Пароль сохраняется как обычный текст
+    };
+
+    // Добавляем объект в массив
+    dataArray.push(formData);
+
+    // Очищаем форму
+    form.reset();
+
+    // Обновляем отображение данных
+    updateDataList();
+});
+
+// Функция для обновления списка данных
+function updateDataList() {
+    // Очищаем список
+    dataList.innerHTML = '';
+
+    // Добавляем каждый элемент массива в список
+    dataArray.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `Запись ${index + 1}: Имя - ${item.name}, Email - ${item.email}, Пароль - ${item.password}`;
+        dataList.appendChild(listItem);
+    });
+}
+</script>
+{% endblock content %}
