@@ -1,0 +1,31 @@
+@font-face {
+    @import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: "Gabriela", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #655D54;
+    font-size: 32px;
+    position: relative;
+
+}
+
+
+
+
